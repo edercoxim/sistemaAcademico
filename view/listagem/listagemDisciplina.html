@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2>Disciplina</h2>
+<div class="col-sm-1">
+<a href="#!cadastroDisciplina"><button class="btn btn-sm btn-primary" >
+    <span class="glyphicon glyphicon-plus"></span>
+    Adicionar
+</button></a>
+    </div>
+     <!--//////////////////////////select para listagem de Disciplina por Curso////////////-->
+<div class="col-sm-4">
+    <select class="form-control" ng-model="selected" ng-change="listarDisciplinaPorCurso(selected)">
+        <option value="">selecione um curso</option>
+        <option ng-repeat="curso in listaDeTdCursos" ng value="{{curso.id}}">{{curso.nome}}</option>
+    </select>
+    <!--//////////////////////////Botoes para paginação///////////////////////////////-->
+</div>
+<button  ng-disabled="selected" class="btn btn-sm btn-primary" ng-click="Anterior(pg)">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    Anterior
+</button>
+<button ng-disabled="selected" class="btn btn-sm btn-primary" ng-click="Proximo(pg)">
+    Proximo
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</button>
+<!--//////////////////////////Tabela Disciplina///////////////////////////////-->
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            <label>ID</label>
+        </th>
+        <th>
+            <label>Nome</label>
+        </th>
+        <th>
+            <label>Descricao</label>
+        </th>
+        <th>
+            <label>Id do Curso</label>
+        </th>
+
+    </tr>
+    </thead>
+
+    <tbody ng-repeat="list in disciplinaPorPagina">
+    <tr>
+        <td>{{list.id}}</td>
+        <td>{{list.nome}}</td>
+        <td>{{list.descricao}}</td>
+        <td>{{list.CursoId}}</td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

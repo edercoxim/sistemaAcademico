@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2>Cursos</h2>
+<a href="#!cadastroCurso"><button class="btn btn-sm btn-primary" >
+    <span class="glyphicon glyphicon-plus"></span>
+    Adicionar
+</button></a>
+<!--//////////////////////////Botoes para paginação///////////////////////////////-->
+<button  ng-disabled="selected" class="btn btn-sm btn-primary" ng-click="Anterior(pg)">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    Anterior
+</button>
+<button ng-disabled="selected" class="btn btn-sm btn-primary" ng-click="Proximo(pg)">
+    Proximo
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</button>
+
+<!--//////////////////////////Tabela Curso///////////////////////////////-->
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            <label>ID</label>
+        </th>
+        <th>
+            <label>Nome</label>
+        </th>
+
+    </tr>
+    </thead>
+
+    <tbody ng-repeat="list in cursosPorPagina">
+    <tr>
+        <td>{{list.id}}</td>
+        <td>{{list.nome}}</td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

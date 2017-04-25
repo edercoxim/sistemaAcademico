@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<h2>Aluno</h2>
+<div class="col-sm-1">
+<a href="#!cadastroAluno">
+    <button class="btn btn-sm btn-primary">
+    <span class="glyphicon glyphicon-plus"></span>
+    Adicionar
+</button></a>
+</div>
+
+<div class="col-sm-4">
+    <!--//////////////////////////Select de listagem Alunos Por Curso //////////////////-->
+    <select class="form-control" ng-model="selected" ng-change="listarAlunosPorCurso(selected)">
+        <option value="">selecione um curso</option>
+        <option ng-repeat="curso in listaDeTdCursos" ng value="{{curso.id}}">{{curso.nome}}</option>
+    </select>
+</div>
+<!--//////////////////////////   Botoes para paginação   ///////////////////////////////-->
+<button  ng-disabled="selected" class="btn btn-sm btn-primary" ng-click="Anterior(pg)">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    Anterior
+</button>
+<button ng-disabled="selected" class="btn btn-sm btn-primary" ng-click="Proximo(pg)">
+    Proximo
+    <span class="glyphicon glyphicon-chevron-right"></span>
+</button>
+
+<!--//////////////////////////  Tabela de Alunos        ///////////////////////////////-->
+<table class="table">
+<thead>
+<tr>
+    <th>
+        <label>ID</label>
+    </th>
+    <th>
+        <label>Nome</label>
+    </th>
+    <th>
+        <label>Cpf</label>
+    </th>
+    <th>
+        <label>Email</label>
+    </th>
+    <th>
+        <label>Id do Curso</label>
+    </th>
+
+</tr>
+</thead>
+    <tbody ng-repeat="list in alunoPorPagina">
+    <tr>
+        <td>{{list.id}}</td>
+        <td>{{list.nome}}</td>
+        <td>{{list.cpf}}</td>
+        <td>{{list.email}}</td>
+        <td>{{list.CursoId}}</td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
