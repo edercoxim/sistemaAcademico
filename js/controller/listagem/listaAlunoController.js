@@ -44,7 +44,7 @@ angular.module("TrabalhoCPW4").controller("listaAlunoController", function ($sco
         };
         alunoAPIService.listarTodosAlunos().then(sucesso,erro);
     };
-    //////////////////////////////////////////
+    //////////////////////////////////////////Listagem
     $scope.listarAlunosPorCurso = function(id){
         if(id){
             var sucesso =function(dados){

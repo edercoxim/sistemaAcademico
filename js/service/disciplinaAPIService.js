@@ -31,11 +31,19 @@ angular.module("TrabalhoCPW4").factory("disciplinaAPIService",
                 url:" http://siscadcpwiv.herokuapp.com/disciplina/curso/"+id
             })
         };
+
+        //var _listarAlunoPorIdDisciplina = function(id){
+        //    return $http({
+        //        method:"GET",
+        //        url:" http://siscadcpwiv.herokuapp.com/aluno/"+id
+        //    })
+        //};
         return {
             salvarDisciplina:_salvarDisciplina,
             listarDisciplinasPaginada:_listarDisciplinasPaginada,
             listarDisciplinaPorCurso:_listarDisciplinaPorCurso,
-            listarDisciplinas:_listarDisciplinas
+            listarDisciplinas:_listarDisciplinas,
+          //  listarAlunoPorIdDisciplina:_listarAlunoPorIdDisciplina
         }
 
     });

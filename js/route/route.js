@@ -40,6 +40,10 @@ angular.module("TrabalhoCPW4")
             controller: "cadastroCursoController"
 
         });
+        $routeProvider.when("/matricula", {
+            templateUrl: "view/listagem/listaMatricula.html",
+            controller: "listaMatriculaController"
 
+        });
 
     }]);

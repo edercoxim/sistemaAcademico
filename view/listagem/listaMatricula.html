@@ -1,0 +1,117 @@
+<!--////////////Grid da Esquerda //////////////-->
+<div class="row">
+    <div class="col-sm-5">
+        <div class="news">
+
+                <h2>Matricula</h2>
+
+            <select class="form-control" ng-model="selectedCurso" ng-change="listarDisciplinaPorCurso(selectedCurso)" >
+                <option value="">selecione um curso</option>
+                <option ng-repeat="curso in listaDeTdCursos" ng value="{{curso.id}}">{{curso.nome}}</option>
+            </select>
+            <br>
+            <br>
+
+            <div class="contentbox">
+                <div class="tablecontent">
+
+
+            <table class="table" >
+                <thead>
+                <tr>
+
+                    <th>
+                        <label>Nome</label>
+                    </th>
+                    <th>
+                        <label>Cpf</label>
+                    </th>
+                    <th>
+                        <label>Matricular</label>
+                    </th>
+
+
+                </tr>
+                </thead>
+                <tbody ng-repeat="list in alunoPorIdCurso">
+                <tr>
+                    <td>{{list.nome}}</td>
+                    <td>{{list.cpf}}</td>
+
+
+                    <td><input type="checkbox" name="" ng-model="selected"
+                               ng-checked="checked(list)"
+                               ng-click="clicked(list)"></td>
+
+
+                 </tr>
+
+            </table>
+              </div></div>
+
+
+
+        </div>
+    </div>
+
+    <!--////////////Grid do meio //////////////-->
+    <div align="center" class="col-sm-2">
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <button ng-click="preMatricula()"> >> </button>
+        <br><br><br>
+        <button ng-click="preMatricula()"> << </button>
+
+    </div>
+    <!--////////////Grid da Direita //////////////-->
+    <div class="col-sm-5">
+        <div class="news">
+            <br><br><br>
+
+            <select class="form-control" ng-model="selectedDisciplina" ng-change="listarAlunosPorIdCurso(selectedCurso)">
+                <option value="">selecione uma Disciplina</option>
+                <option ng-repeat="disciplina in disciplinaPorIdCurso" value="{{disciplina.id}}">{{disciplina.nome}}</option>
+            </select>
+            <br>
+            <br>
+            <select class="form-control" ng-model="selectedSemestre"
+                    ng-change="listarAlunosPorIdSemestre(selectedSemestre,selectedDisciplina)">
+                <option value="">selecione um Semestre</option>
+                <option ng-repeat="semestre in semestreTds" value="{{semestre.id}}">{{semestre.descricao}}</option>
+            </select>
+            <br>
+            <br>
+
+            <table class="table" >
+                <thead>
+                <tr>
+
+                    <th>
+                        <label>Nome</label>
+                    </th>
+                    <th>
+                        <label>Cpf</label>
+                    </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="aluno in alunoPorIdSemestre">
+                    <td>{{aluno.alunonome}}</td>
+                    <td>{{aluno.alunocpf}}</td>
+                </tr>
+
+                <tr ng-repeat="aluno in listaSelecionados">
+                    <td>{{aluno.cpf}}</td>
+                    <td>{{aluno.nome}}</td>
+                </tr>
+                </tbody>
+
+            </table>
+
+            <div align="center" class="col-sm-2">
+                <br><br>
+                <button ng-click="Enviar(selectedDisciplina,selectedSemestre)"> Matricular </button>
+        </div>
+    </div>
+  </div>
+</div>
